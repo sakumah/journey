@@ -1,0 +1,56 @@
+<h1>touristsite</h1>
+<h3>Tourist詳細</h3>
+<div class="tourist">
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= find_youtube_url(@tourist.youtube_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+  <p><%= @tourist.name %></p>
+  <p><%= @tourist.what %></p>
+  <p><%= @tourist.how %></p>
+  <p><%= @tourist.more %></p>
+  <p><%= @tourist.access %></p>
+  <p><%= @tourist.updated_at %></p>
+  <p><%= @tourist.created_at %></p>
+  <p><%= @tourist.user_id %></p>
+  <p><%= @tourist.image %></p>
+
+  <div class="tourist">
+  <p><%= @tourist.name %></p>
+  <p><%= @tourist.what %></p>
+  <p><%= @tourist.how %></p>
+  <p><%= @tourist.more %></p>
+  <p><%= @tourist.access %></p>
+  <p><%= @tourist.updated_at %></p>
+  <p><%= @tourist.created_at %></p>
+  <p><%= @tourist.user_id %></p>
+  <p><%= @tourist.image %></p>
+
+    <% if user_signed_in? %>
+      <% if current_user.already_liked?(@tourist) %>
+        <%= button_to tourist_like_path(@tourist), method: :delete do %>
+          <i class="fas fa-heart"></i><%= @tourist.likes.count %>
+          <p>いいねを取り消す</p><%= @tourist.likes.count %>
+        <% end %>
+      <% else %>
+        <%= button_to tourist_likes_path(@tourist), method: :post do %>
+          <i class="fas fa-heart"></i><%= @tourist.likes.count %>
+          <p>いいね</p><%= @tourist.likes.count %>
+        <% end %>
+      <% end %>
+    <% else %>
+     <i class="far fa-heart"></i><%= @tourist.likes.count %>
+      <p>いいねの数 = </p><%= @tourist.likes.count %>
+    <% end %>
+  <%= link_to "編集する", edit_tourist_path(@tourist.id) %>
+  </div>
+</div>
+
+<h2>いいねしたユーザー</h2>
+<% @tourist.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+
+
+<%= link_to "Tourist一覧に戻る", tourists_path %>

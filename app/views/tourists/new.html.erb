@@ -1,0 +1,63 @@
+<h1>自分の観光地の「価値」は？</h1>
+<h3>自分の観光地の良さをアピールして下さい！暫定</h3>
+<%= form_for @tourist do |f| %>
+
+  <%= f.label :youtube_url %>
+  <%= f.text_field :youtube_url, :size => 140 %>
+
+<div class="field">
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+</div>
+
+
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :size => 30 %>
+
+  </div>
+
+  # データ型がstringで自由記述の入力フォーム
+  <div class="field">
+  <%= f.label :what %>
+  <%= f.text_field :what, :size => 30 %>
+
+
+
+  </div>
+
+
+
+  # データ型がtextで自由記述の入力フォーム
+    <div class="field">
+      <%= f.label :how %>
+      <%= f.text_area :how, :size => "30x2" %>
+
+    
+      
+    </div>
+
+  # データ型がtextで自由記述の入力フォーム
+  <div class="field">
+  <%= f.label :more %>
+  <%= f.text_area :more, :size => "30x2" %>
+
+
+  </div>
+
+  # データ型がtextで自由記述の入力フォーム
+  <div class="field">
+  <%= f.label :access %>
+  <%= f.text_area :access, :size => "30x2" %>
+
+  </div>
+
+  <%= f.submit "投稿する" %>
+<% end %>
+
+<%= link_to "一覧に戻る", tourists_path %>
+
+<% if user_signed_in? %>
+<%= link_to "観光地従事者向けマイページへ", user_path(current_user.id) %>
+<% end %>
