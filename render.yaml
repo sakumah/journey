@@ -1,0 +1,22 @@
+databases:
+  - name: journey_DB
+    databaseName: journey_db
+    user: journey
+    region: singapore
+
+services:
+  - type: web
+    name: journey
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: journey_DB
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+
