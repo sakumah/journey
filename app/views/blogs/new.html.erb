@@ -1,5 +1,5 @@
 <%= form_with(model: @blog, local: true) do |form| %>
-
+<div class="blogs">
     <div class="title">
       <%= form.label :title %>
       <%= form.text_field :title %>
@@ -19,6 +19,6 @@
     <div class="submit">
       <%= form.submit %>
     </div>
-  
+   
   <% end %>
-  
+</div>  

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Journey</title>
+    <title>sightseeing spot finder</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,9 +10,30 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300&display=swap" rel="stylesheet">
+    　<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>sightseeing spot finder</h1>
+
+      <div class="logo">
+      <%= image_tag '621C4736-CD96-4F0F-965E-99B69A89CAC2.jpg' %>
+      </div>
+
+      <div class="header-list">
+      <ul>
+        <li><%= link_to "ホーム", tourists_path %></li>
+        <li><%= link_to "新規投稿",new_tourist_path %></li>
+      </ul>
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+
   </body>
+
 </html>

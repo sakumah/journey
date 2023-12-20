@@ -1,0 +1,24 @@
+<%= form_for @tourist do |f| %>
+    <%= f.label :image %>
+    <%= f.file_field :image, :size => 140 %>
+    <br>
+    <%= f.label :youtube_url%>
+    <%= f.text_field :youtube_url, :size => 140 %>
+    <br>
+    <%= f.label :観光地の名前は？あなたの観光地を一言で表すと？ %>
+    <%= f.text_field :name, :size => 140 %>
+    <br>
+    <%= f.label :何をするところ？できるだけ具体的に！ %>
+    <%= f.text_field :what, :size => 140 %>
+    <br>
+    <%= f.label :どんな価値が得られるか？重点的に！ %>
+    <%= f.text_field :how, :size => 140 %> 
+    <br>
+    <%= f.label :他の類似の観光地に比べてどんな点で差別化できる？重点的に！ %>
+    <%= f.text_field :more, :size => 140 %>
+    <br>
+    <%= f.label :この観光地への行き方は？できるだけ簡単に、安く行ける方法を教えて下さい！ %>
+    <%= f.text_field :access, :size => 140 %> 
+    <br>
+    <%= f.submit "編集する" %>
+  <% end %>

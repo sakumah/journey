@@ -1,0 +1,46 @@
+// Place all the styles related to the touristsites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+body {
+    background-image: url("2017-06-22-19-12-01-1152x768.jpg");
+    background-size:  contain;
+    }
+
+
+.slide-show img:nth-of-type(1) {
+        position: relative;
+        }
+            
+.slide-show img:nth-of-type(2) {
+        animation-delay: 0s;
+        }
+            
+.slide-show img:nth-of-type(3) {
+        animation-delay: 4s;
+        }
+            
+.slide-show img:nth-of-type(4) {
+        animation-delay: 8s;
+        }
+
+.slide-show{
+
+background-color: aqua;
+}
+
+.quote2{
+    background-color: rgb(213, 213, 119)
+}
+
+.details{
+     background-color: rgb(213, 213, 119)
+}
+
+.touristsite{
+        background-color: rgb(213, 213, 119)
+}
+
+.list{
+        color: aquamarine
+}

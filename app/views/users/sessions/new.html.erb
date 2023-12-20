@@ -1,4 +1,13 @@
+<div class='login'>
 <h2>Log in</h2>
+</div>
+
+<div class='slide-show'>
+<%= image_tag 'onsen_ec.jpg' %>
+<%= image_tag 'onsen_ec.jpg' %>
+<%= image_tag 'kurodaen_20211104154950_2.jpg' %>
+<%= image_tag '7NvaFiWmsECTTgB1vAwa5pqVZhlBwrRVVJXshfmq.jpeg' %>
+</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -7,7 +16,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :パスワード %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -21,6 +30,25 @@
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
+  
+ <div class='quote'>
+ 
+ <h3> 写真　参考URL
+ <br>
+ 写真は、奥多摩「日原鍾乳洞」　四万温泉積善館　茨城県大子町「黒田りんご園」
+ </h3>
+ 
+ <p>
+ <a href="https://rurubu.jp/andmore/article/16"　target="_blank">奥多摩「日原鍾乳洞」とは？見どころや洞窟の楽しみ方を紹介  </a>へ
+ <br>
+ <a href="https://we-love.gunma.jp/onsen/onsen-5"　target="_blank">四万温泉積善館｜千と千尋の神隠しのモデルになった日帰り入浴もできる重要文化財の宿　群馬情報サイト　We ♥　群馬内</a>へ
+ <br>
+ <a href="https://jsbs2012.jp/date/kurodaen"　target="_blank">茨城県「黒田りんご園」で豊富な品種＆こだわりのりんごを味わうデート｜茨城県大子町 縁結び大学内</a>へ
+ </p>
+
+
+  </div>
+
 <% end %>
 
 <%= render "users/shared/links" %>

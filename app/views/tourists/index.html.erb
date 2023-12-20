@@ -1,10 +1,38 @@
-<h1>自分の題名</h1>
-<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %> # 追加
-<h3>一覧ページ</h3>
+
+
+<div class='slide-show'>
+
+<%= image_tag 'onsen_ec.jpg' %>
+<%= image_tag 'onsen_ec.jpg' %>
+<%= image_tag 'kurodaen_20211104154950_2.jpg' %>
+<%= image_tag '7NvaFiWmsECTTgB1vAwa5pqVZhlBwrRVVJXshfmq.jpeg' %>
+
+<h1>現在注目の観光地</h1>
+<h3> 写真　参考URL
+ <br>
+ 写真は、奥多摩「日原鍾乳洞」　四万温泉積善館　茨城県大子町「黒田りんご園」
+ </h3>
+ 
+ <p>
+ <a href="https://rurubu.jp/andmore/article/16"　target="_blank">奥多摩「日原鍾乳洞」とは？見どころや洞窟の楽しみ方を紹介  </a>へ
+ <br>
+ <a href="https://we-love.gunma.jp/onsen/onsen-5"　target="_blank">四万温泉積善館｜千と千尋の神隠しのモデルになった日帰り入浴もできる重要文化財の宿　群馬情報サイト　We ♥　群馬内</a>へ
+ <br>
+ <a href="https://jsbs2012.jp/date/kurodaen"　target="_blank">茨城県「黒田りんご園」で豊富な品種＆こだわりのりんごを味わうデート｜茨城県大子町 縁結び大学内</a>へ
+ </p>
+
+</div>
+
+<div class="list">
+<h2>一覧ページ</h2>
+</div>
+
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %> 
+
 <%= link_to "新規投稿へ", new_tourist_path %>
 
 <% if user_signed_in? %>
-  <%= link_to "観光地従事者向けマイページへ", user_path(current_user.id) %>
+  <%= link_to "観光地従事者マイページへ", user_path(current_user.id) %>
 <% end %>
 
 <%= link_to "カレンダーへ", :controller => "blogs", :action => "index" %>
@@ -13,19 +41,13 @@
   <% @tourists.each do |t| %>
     <div class="touristsite">
     
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= find_youtube_url(t.youtube_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      
     <%= image_tag t.image_url, size: "250x200" if t.image? %>
     <%= t.user.email %>
       <%= t.name %>
-      <%= t.what %>
-      <%= t.how %>
-      <%= t.more %>
-      <%= t.access %>
+      
       <%= link_to "詳細へ", tourist_path(t.id) %>
       
-
-    <% if user_signed_in? %>
+      <% if user_signed_in? %>
       <% if current_user.already_liked?(t) %>
           <%= button_to tourist_like_path(id: t.id, tourist_id: t.id), method: :delete do %>
             <i class="fas fa-heart"></i><%= t.likes.count %>
@@ -40,9 +62,23 @@
     <% else %>
       <p>いいねの数 = </p><%= t.likes.count %>
     <% end %>
+
     </div>
     <%= image_tag t.user.image_url, size: "250x200" if t.user.image? %>
-    
+
+  <% if user_signed_in? %>
+   <% if current_user.admin? %>
+     <%= link_to "編集する",  edit_admin_tourist_path(t.id) %>
+     <%= button_to "削除する", admin_tourist_path(t.id), method: :delete %> 
+   <% end %>
   <% end %>
+<% end %>
+
+<div class='quote2'>
+背景参考画像
+<br>
+<a href="https://pixnio.com/ja/%E3%83%86%E3%82%AF%E3%82%B9%E3%83%81%E3%83%A3/%E5%B2%A9%E7%9B%A4%E7%9F%B3%E3%81%AE%E3%83%86%E3%82%AF%E3%82%B9%E3%83%81%E3%83%A3/%E7%9F%B3%E5%A3%81%E3%81%AE%E3%83%86%E3%82%AF%E3%82%B9%E3%83%81%E3%83%A3%E3%80%81%E3%83%95%E3%82%A7%E3%83%B3%E3%82%B9"　target="_blank">PIXNIO/テクスチャ/岩盤石のテクスチャ/石壁のテクスチャ、フェンス</a>へ
+
+</div>
 
 </div>

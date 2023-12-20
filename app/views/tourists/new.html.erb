@@ -1,63 +1,89 @@
+<div class="post">
 <h1>自分の観光地の「価値」は？</h1>
+<br>
 <h3>自分の観光地の良さをアピールして下さい！暫定</h3>
+<br>
+<h4>name 観光地の名前は？あなたの観光地を一言で表すと？
+<br>
+what 何ができるか？
+<br>
+how どのような「価値」を提携できるか？
+<br>
+more 他の有名どころと比べて、どのように差別化できると思いますか？
+<br>
+access アクセス(できるだけ簡単に、安く行ける方法を教えて下さい！)</h4>
+<br>
+<h5>　動画や画像も載せて下さい！</h5>
+
+
+
+
+<%= stylesheet_link_tag 'new', :media => "all" %>
+
 <%= form_for @tourist do |f| %>
 
   <%= f.label :youtube_url %>
   <%= f.text_field :youtube_url, :size => 140 %>
 
 <div class="field">
-  <%= f.label :image %>
+  <%= f.label :この観光地のイメージ図 %>
   <%= f.file_field :image %>
 </div>
 
 
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :観光地の名前は？あなたの観光地を一言で表すと？ %>
     <%= f.text_field :name, :size => 30 %>
 
   </div>
 
-  # データ型がstringで自由記述の入力フォーム
   <div class="field">
-  <%= f.label :what %>
+  <%= f.label :何をするところ？できるだけ具体的に！ %>
+  <div id="tourist_what">
   <%= f.text_field :what, :size => 30 %>
-
+  </div>
 
 
   </div>
 
 
 
-  # データ型がtextで自由記述の入力フォーム
-    <div class="field">
-      <%= f.label :how %>
+  
+    <div class="how">
+      <%= f.label :どんな価値が得られるか？重点的に！ %>
+      <br>
       <%= f.text_area :how, :size => "30x2" %>
-
-    
-      
     </div>
 
-  # データ型がtextで自由記述の入力フォーム
-  <div class="field">
-  <%= f.label :more %>
+  
+  <div class="more">
+  <%= f.label :他の類似の観光地に比べてどんな点で差別化できる？重点的に！ %>
+  <br>
   <%= f.text_area :more, :size => "30x2" %>
 
 
   </div>
 
-  # データ型がtextで自由記述の入力フォーム
+  
   <div class="field">
-  <%= f.label :access %>
+  <%= f.label :この観光地への行き方は？できるだけ簡単に、安く行ける方法を教えて下さい！ %>
   <%= f.text_area :access, :size => "30x2" %>
 
   </div>
 
+  <div class="tweet">
   <%= f.submit "投稿する" %>
+  </div>
+  
 <% end %>
 
+<div class="link">
 <%= link_to "一覧に戻る", tourists_path %>
 
 <% if user_signed_in? %>
 <%= link_to "観光地従事者向けマイページへ", user_path(current_user.id) %>
 <% end %>
+</div>
+
+</div>

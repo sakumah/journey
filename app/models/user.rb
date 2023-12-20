@@ -9,6 +9,7 @@ class User < ApplicationRecord
          validates :profile, length: { maximum: 200 } 
          has_many :likes, dependent: :destroy
          has_many :liked_tourists, through: :likes, source: :tourist
+         has_many :comments, dependent: :destroy
          mount_uploader :image, ImageUploader  
          
          def already_liked?(tourist)
